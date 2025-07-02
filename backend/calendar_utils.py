@@ -25,7 +25,7 @@ json_str = os.getenv("GOOGLE_SERVICE_JSON")
 if not json_str:
     raise ValueError("Missing GOOGLE_SERVICE_JSON")
 
-info = json.loads(json_str)
+# info = json.loads(json_str)
 # credentials = service_account.Credentials.from_service_account_info(info, scopes=SCOPES)
 
 import json

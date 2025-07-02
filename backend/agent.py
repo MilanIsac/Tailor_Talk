@@ -8,20 +8,25 @@ from googleapiclient.discovery import build
 import pytz
 from dateutil.parser import parse
 from calendar_utils import check_availability, book_slot
+import json
 
 load_dotenv()
 
-SERVICE_ACCOUNT_FILE = 'service_account.json'
-SCOPES = ['https://www.googleapis.com/auth/calendar']
-CALENDAR_ID = os.getenv('CALENDAR_ID')
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash",
     temperature=0.7
 )
 
-credentials = service_account.Credentials.from_service_account_file(
-    SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+SCOPES = ['https://www.googleapis.com/auth/calendar']
+CALENDAR_ID = os.getenv('CALENDAR_ID')
+
+json_str = os.getenv("GOOGLE_SERVICE_JSON")
+if not json_str:
+    raise ValueError("Missing GOOGLE_SERVICE_JSON")
+
+service_account_info = json.loads(json_str)
+credentials = service_account.Credentials.from_service_account_info(service_account_info, scopes=SCOPES)
 
 service = build('calendar', 'v3', credentials=credentials)
 
