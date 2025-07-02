@@ -7,7 +7,7 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 import pytz
 from dateutil.parser import parse
-from backend.calendar_utils import check_availability, book_slot
+from calendar_utils import check_availability, book_slot
 
 load_dotenv()
 
