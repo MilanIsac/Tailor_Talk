@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from googleapiclient.discovery import build
+import json
 from google.oauth2 import service_account
 from datetime import datetime
 from dateutil.parser import parse
@@ -9,9 +10,8 @@ import pytz
 load_dotenv()
 
 # SERVICE_ACCOUNT_FILE = 'service_account.json'
-SERVICE_ACCOUNT_FILE = os.getenv("GOOGLE_SERVICE_JSON")
-if not SERVICE_ACCOUNT_FILE:
-    raise ValueError("Missing GOOGLE_SERVICE_JSON")
+# if not SERVICE_ACCOUNT_FILE:
+#     raise ValueError("Missing GOOGLE_SERVICE_JSON")
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 CALENDAR_ID = os.getenv('CALENDAR_ID')
 
@@ -20,8 +20,14 @@ print("Loaded CALENDAR_ID:", CALENDAR_ID)
 if not CALENDAR_ID:
     raise ValueError("CALENDAR_ID is not set in .env file.")
 
-credentials = service_account.Credentials.from_service_account_file(
-    SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+
+json_str = os.getenv("GOOGLE_SERVICE_JSON")
+if not json_str:
+    raise ValueError("Missing GOOGLE_SERVICE_JSON")
+
+info = json.loads(json_str)
+credentials = service_account.Credentials.from_service_account_info(info, scopes=SCOPES)
+
 
 service = build('calendar', 'v3', credentials=credentials)
 
