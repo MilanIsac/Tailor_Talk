@@ -1,13 +1,6 @@
 import json
 
-# Load your service_account.json
 with open("service_account.json", "r") as f:
     data = json.load(f)
 
-# Convert to a single-line JSON string and escape quotes
-escaped = json.dumps(data).replace('"', '\\"')
-print(escaped)
-
-
-
-# {\"type\": \"service_account\", \"project_id\": \"extended-spark-452316-b1\", \"private_key_id\": \"3c975680766f0b66a32405580141b2a02d0c42ce\", \"private_key\": \"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCWqn2iLvq05KWF\nJGElGth3c7f8UatU/UzIJMJGphM7ywpEjl/k17Fq+PWmqyrjHLQe4SR+QwP1KBW4\nU4+YDbguj4XBtL7/4srOW7+UAEIsMjeTTFrPYjTesH5M8F4rPVyEUIxy9lg61rIg\nseggMqus+K99ZYqmmBaerfSkFn794tnTkoJi0mwdOsrIbYdKe3H1YNsC0mFpv1vJ\nkZ+qv2ITimaFqGYsPZZP/s6mtUjB9W9yLSyq09i/nDPRkLlK2igRQC4+EMhK6NbA\nKvQP4CV4pYos2ikAy5xklU6lk0Jp3CLPOHK7KalgtZjYgq3rZBfvyGnqcKVgVyA1\nDg5s/fjRAgMBAAECggEAALE7So5ZR2yn08Q4vg3DPXJrP7mQWI1YRYxO1fDXtKPG\nNE3emu8ppq8Kv6Qq2khO6Un8IF9B468RwVaA9UTEA1LCFEykUcCwdeEk56UxzTfm\n/y/9fR52+gONmil5vCf8mNgxVip4ML9PPIPLnvpBMx9qjwTzSQHUL6ML2eCZun/H\nHuErEL/biVZNECP5UylBd/GZQxGBv33HozsQL0f8c3Rn6XcrT2EmeOIAmE9EDv2U\nLoSDUJbdDK0RxuJ0EOQQbM491SliuKXayBlkQJdeuk+TYOXt97zmIQxOJfuIXpN+\nMHSAjO9ranf6yJxnUjcprMAi8QqTPCd9iZwWF5VOEQKBgQDIiNufwOQm29xNc1O1\nwwGtpZOGd9W43Y7SHEh2JVFy1bpgnLWPw9jZOxvxxipIsyRvmHFCojE+nbHOIj3p\nluG7rhvAx7k2zlTXBzSupv5DV2JJNiLKf7hceDNShKoPblqaMSdWFqmJ0uJzpfWU\nsZAzDO3WusJFRmJGPVsR1uskfwKBgQDAVpzxhLqJOAjlo+KnB/Qhh/j+92Nu3TqC\nBF8IcGVrGhvbB1yPv3DEGNrOSCFGhOxrm+/KfkhQM4uHukznF3E7jomnSlDd93lH\n5f2+n5wGl0oTYmqcPJLgg9Dv+4j17QzIyHg2I0+70tT+zjPGXKJwYBmANioC8UOQ\npyNz4WT6rwKBgQCRHtFpG8s//82+0t3aZKPbST6oiiJFZTjM/qDFtx3pL5hwABg4\nUO+lzOvdHJ5O/C07ASO9p+hhOveIiCkr2P/EtSvqZ962Nb0Z22IZnknU6/D5sE6f\nIqyFZoslhVIYVrEEctvXphDM56rvLEO7doA3IX0g7whV36iQ0igMke6a+wKBgDVy\nG+xU6IymwHonXxzw7dq/cOZQkhXFbbOhSVMMAHKRb7oeQo9DMC+dhHebvXteBmAk\nla5cBvYaTKRrlWEFt5ZIFmIhGXWEhfP/qdHlgjKmqZPXXi6J+npexplY+Qb1Vv8Y\nDadliotzm3IulF6DcTPu0Ec7RdNJfW/dsdFKiYfLAoGAGvZamSviwqbjbwxD+/Zt\n++4aR2mihHAQPC7rAaOnJ3g4MyKPFn6Nq5bDXu046zcSh4sHYzoyU/4lEZbI+Q+8\n9Pj4XK9S11LjeYzrfTcuoKWO6zrsrVtJNVNp5w1/AKKEng34eplYlxTHTDv7mM8P\ntDKibcHDt+HEkV3n/0dUDNk=\n-----END PRIVATE KEY-----\n\", \"client_email\": \"internship-project@extended-spark-452316-b1.iam.gserviceaccount.com\", \"client_id\": \"100124385533072941114\", \"auth_uri\": \"https://accounts.google.com/o/oauth2/auth\", \"token_uri\": \"https://oauth2.googleapis.com/token\", \"auth_provider_x509_cert_url\": \"https://www.googleapis.com/oauth2/v1/certs\", \"client_x509_cert_url\": \"https://www.googleapis.com/robot/v1/metadata/x509/internship-project%40extended-spark-452316-b1.iam.gserviceaccount.com\", \"universe_domain\": \"googleapis.com\"}
+print(json.dumps(data))  # ✅ this will print a compact, correct JSON string

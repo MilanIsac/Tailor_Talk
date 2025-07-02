@@ -26,7 +26,16 @@ if not json_str:
     raise ValueError("Missing GOOGLE_SERVICE_JSON")
 
 info = json.loads(json_str)
-credentials = service_account.Credentials.from_service_account_info(info, scopes=SCOPES)
+# credentials = service_account.Credentials.from_service_account_info(info, scopes=SCOPES)
+
+import json
+from google.oauth2 import service_account
+import os
+
+# Load JSON from environment variable
+service_account_info = json.loads(os.environ["GOOGLE_SERVICE_JSON"])
+credentials = service_account.Credentials.from_service_account_info(service_account_info, scopes=SCOPES)
+
 
 
 service = build('calendar', 'v3', credentials=credentials)
