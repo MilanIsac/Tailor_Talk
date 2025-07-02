@@ -8,7 +8,10 @@ import pytz
 
 load_dotenv()
 
-SERVICE_ACCOUNT_FILE = 'service_account.json'
+# SERVICE_ACCOUNT_FILE = 'service_account.json'
+SERVICE_ACCOUNT_FILE = os.getenv("GOOGLE_SERVICE_JSON")
+if not SERVICE_ACCOUNT_FILE:
+    raise ValueError("Missing GOOGLE_SERVICE_JSON")
 SCOPES = ['https://www.googleapis.com/auth/calendar']
 CALENDAR_ID = os.getenv('CALENDAR_ID')
 
