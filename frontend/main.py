@@ -1,5 +1,11 @@
 import streamlit as st
 import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+BACKEND_URL = os.getenv("BACKEND_URL", "https://your-backend.onrender.com")
 
 st.title("TailorTalk: Book your Appointment")
 
@@ -13,7 +19,7 @@ if st.button("Send") and user_input:
 
     try:
         resp = requests.post(
-            "http://localhost:8000/chat",
+            f"{BACKEND_URL}/chat",
             json={"message": user_input}
         )
         print("Frontend received status:", resp.status_code)

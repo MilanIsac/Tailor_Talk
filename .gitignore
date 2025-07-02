@@ -1,3 +1,3 @@
 venv/
 service_account.json
-.env
+backend/.env
