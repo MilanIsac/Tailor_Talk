@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from agent import chat_with_agent
+from backend.agent import chat_with_agent
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
